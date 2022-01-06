@@ -67,6 +67,7 @@ engine:
   type: Merge
   sources:
     - type: Chain
+      transformations:
         - type: Include
           patterns: ['**/openapi-v3.0.yaml']
         - type: ReplaceText

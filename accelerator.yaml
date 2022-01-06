@@ -1,0 +1,82 @@
+accelerator:
+  displayName: OpenAPI Accelerator
+  description: A Spring Boot Server Implementation of the OpenAPI 3.0 Spec you pass in
+  iconUrl: https://raw.githubusercontent.com/simple-starters/icons/master/icon-cloud.png
+  tags:
+    - java
+    - spring
+    - openAPI
+  options:
+    - name: openApiSpec
+      inputType: textarea
+      defaultValue: |
+        openapi: 3.0.0
+        servers:
+          - url: 'http://petstore.swagger.io/v2'
+        info:
+          description: >-
+            This is a sample server Petstore server. For this sample, you can use the api key
+            `special-key` to test the authorization filters.
+          version: 1.0.0
+          title: OpenAPI Petstore
+          license:
+            name: Apache-2.0
+            url: 'https://www.apache.org/licenses/LICENSE-2.0.html'
+        tags:
+          - name: pet
+            description: Everything about your Pets
+          - name: store
+            description: Access to Petstore orders
+          - name: user
+            description: Operations about user
+        paths:
+          '/pet/{petId}':
+            get:
+              tags:
+                - pet
+              summary: Find pet by ID
+              description: Returns a single pet
+              operationId: getPetById
+              parameters:
+                - name: petId
+                  in: path
+                  description: ID of pet to return
+                  required: true
+                  schema:
+                    type: integer
+                    format: int64
+              responses:
+                '200':
+                  description: successful operation
+                  content:
+                    application/xml:
+                      schema:
+                        $ref: '#/components/schemas/Pet'
+                    application/json:
+                      schema:
+                        $ref: '#/components/schemas/Pet'
+                '400':
+                  description: Invalid ID supplied
+                '404':
+                  description: Pet not found
+              security:
+                - api_key: []
+      required: true
+
+engine:
+  type: Merge
+  sources:
+    - type: Chain
+        - type: Include
+          patterns: ['**/openapi-v3.0.yaml']
+        - type: ReplaceText
+          substitutions:
+          - text: api-spec
+            with: "#openApiSpec"
+    - type: Include
+      patterns: ['**/*.java']
+    - type: Include
+      patterns: ['**/*.gradle']
+    - type: Include
+      patterns: ['**/gradlew*']
+

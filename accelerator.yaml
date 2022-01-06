@@ -6,6 +6,7 @@ accelerator:
     - java
     - spring
     - openAPI
+    - PCI
   options:
     - name: openApiSpec
       inputType: textarea
@@ -33,6 +34,8 @@ accelerator:
             description: Example echo operations
           - name: User
             description: Operations about user
+          - name: Noop
+            description: Operations that aren't
         servers:
           - url: 'http://example.com/api/v1'
           - url: 'https://example.com/api/v1'

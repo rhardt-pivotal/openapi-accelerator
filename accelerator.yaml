@@ -36,11 +36,9 @@ accelerator:
         servers:
           - url: 'http://example.com/api/v1'
           - url: 'https://example.com/api/v1'
-        paths:
-            # paths here
+        paths: []
         components:
-          securitySchemes:
-            # security schemes here
+          securitySchemes: []
         security:
           - SecretAPIKey: []
           - JWT: []

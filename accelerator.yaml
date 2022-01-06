@@ -75,7 +75,4 @@ engine:
           - text: api-spec
             with: "#openApiSpec"
     - type: Include
-      patterns: ['**/*.java']
-    - type: Include
-      patterns: ['**/*.gradle', '**/gradlew*', '/gradle/']
-
+      patterns: ['**/*.java', '**/*.gradle', '**/gradlew*', 'gradle/**']

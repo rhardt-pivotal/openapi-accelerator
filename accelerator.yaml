@@ -6,18 +6,7 @@ accelerator:
     - java
     - spring
     - openAPI
-    - PCI
   options:
-    - name: apiName
-      inputType: text
-      defaultValue: myApi
-      required: true
-      label: API name
-      description: The name of your API
-    - name: isPCI
-      inputType: checkbox
-      defaultValue: false
-      dataType: boolean
     - name: openApiSpec
       inputType: textarea
       defaultValue: |

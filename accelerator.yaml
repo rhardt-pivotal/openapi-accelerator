@@ -8,6 +8,12 @@ accelerator:
     - openAPI
     - PCI
   options:
+    - name: apiName
+      inputType: text
+      defaultValue: myApi
+      required: true
+    - name: isPCI
+      inputType: checkbox
     - name: openApiSpec
       inputType: textarea
       defaultValue: |
